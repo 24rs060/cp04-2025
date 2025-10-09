@@ -162,6 +162,7 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
+
         
     }
 
@@ -186,6 +187,8 @@
     function btnAClick(e){
         active = true;
         startTime = new Date();
+        $("#btnA").prop("disabled", true);
+
         
     }
 
