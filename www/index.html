@@ -156,13 +156,13 @@
     var active = false;
     var startTime = 0;
     var period = 0;
-    var rest = 0;　
+    var rest = 0;
     var etime = 0;
     var m = 0;
     var s = 0;
     var mstr = "分: ";
     var scst = "秒: ";
-    var pausedTime = 0;
+    var timeSpeed = 1;
 
     
     // ボタンの初期設定
@@ -170,6 +170,7 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
+        $('#btnD').prop('disabled', false);
         btnCClick(null);
         
     }
@@ -192,18 +193,21 @@
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
             active = true;
-            startTime = new Date() - pausedTime * 1000;
+            startTime = new Date() - etime * 1000 * timeSpeed;
             $("#btnA").prop("disabled", true);
             $("#btnB").prop("disabled", false);
+            $("#btnA").css("font-Family", "fantasy");
+            $("#btnB").css("font-Family", "");
         
     }
 
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
         active = false;
-        pausedTime = etime;
         $("#btnB").prop("disabled", true);
         $("#btnA").prop("disabled", false);
+        $("#btnB").css("font-Family", "fantasy");
+        $("#btnA").css("font-Family", "");
 
         
     }
@@ -212,7 +216,6 @@
     function btnCClick(e){
         alarm();
         active = false;
-        pausedTime = 0;
         m = parseInt(rest / 60);
         s = parseInt(rest - m * 60);
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
@@ -224,14 +227,16 @@
     }
     function btnDClick(e){
         active = true;
-        startTime = new Date()
+        startTime = new Date() * timeSpeed;
     }
+
+    
     
  
     // 繰り返し実行する処理
     function timer(){  
         if (active) {
-            etime = parseInt( (new Date() - startTime)/1000);
+            etime = parseInt( (new Date() - startTime)/1000 * timeSpeed);
             rest = period - etime;　
             m = parseInt(rest / 60);
             s = parseInt(rest - m * 60);
@@ -253,10 +258,7 @@
                 active = false;
                 alarm();
             }
-
         }
-        
-        
     } 
 
   </script>
@@ -272,7 +274,7 @@
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
     <button id="btnC">Set</button>  
-    <button id="btnD">re-start<button>
+    <button id="btnD">Restart</button>
     <input type="number" id="minute" value=3 >
     <input type="number" id="second" value=0 >
     <audio id="audio"><source src="pin.wav" type="audio/wav"></audio>

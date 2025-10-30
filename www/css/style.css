@@ -67,7 +67,7 @@
 
     #btnD {
         font-size: 20px;
-        position:absolute; top:440px; left:0%; width:45%; height:60px; 
+        position:absolute; top:440px; left:0%; width:50%; height:60px; 
         background-color: blue;
         color: rgb(39, 233, 142);
     }
