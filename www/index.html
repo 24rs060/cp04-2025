@@ -38,6 +38,9 @@
         $('#btnC').click(function(e) {
             btnCClick(e);
         });
+        $('#btnD').click(function(e) {
+            btnDClick(e);
+        });
         init();
     });
     
@@ -219,6 +222,10 @@
         
         
     }
+    function btnDClick(e){
+        active = true;
+        startTime = new Date()
+    }
     
  
     // 繰り返し実行する処理
@@ -256,8 +263,7 @@
 </head>
 <body>
     <canvas id="mycanvas" width="200" height="200">Test</canvas>
-    <canvas id="mycanvas2" width="200" height="200">Test</canvas>
-
+    
     <div id="minuteStr">〇</div>
     <div id="secondStr">〇</div>
 
@@ -266,6 +272,7 @@
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
     <button id="btnC">Set</button>  
+    <button id="btnD">re-start<button>
     <input type="number" id="minute" value=3 >
     <input type="number" id="second" value=0 >
     <audio id="audio"><source src="pin.wav" type="audio/wav"></audio>
