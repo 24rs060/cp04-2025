@@ -162,7 +162,7 @@
     var s = 0;
     var mstr = "分: ";
     var scst = "秒: ";
-    
+    var timeSpeed = 1;
 
     
     // ボタンの初期設定
@@ -198,7 +198,7 @@
             $("#btnB").prop("disabled", false);
             $("#btnA").css("font-Family", "fantasy");
             $("#btnB").css("font-Family", "");
-            $("#btnD").css("font-Family", "");
+            $("#btnD").css("font-Family", "fantasy");
         
     }
 
@@ -218,11 +218,12 @@
     function btnCClick(e){
         alarm();
         active = false;
-        m = parseInt(rest / 60);
-        s = parseInt(rest - m * 60);
+        m = 3;
+        s = 0;
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間： 0");　
-        $("#remain").html("残り時間： " + period);
+        $("#remain").html("残り時間： " + m + "分" + s + "秒");
+        //$("#remain").html("残り時間： " + period);
         $("#explain").html("Start:現在残り時間からタイマーが開始されます。<br>Stop:一時停止します。<br>Set:初期状態にリセットされます。<br>Restart:最初からタイマーが開始されます。");
         $("#btnA").prop("disabled", false);
         $("#btnB").prop("disabled", false);
