@@ -25,7 +25,7 @@
         font-weight: bold;
     }
     
-    #time {
+    #time{
         color: #ff0000;
         font-size: 20px;
         text-align: center;
@@ -57,7 +57,7 @@
     }
 
     #btnC {
-        font-size: 10px;
+        font-size: 20px;
         position:absolute; top:380px; left:70%; width:28%; height:60px; 
     }
     
