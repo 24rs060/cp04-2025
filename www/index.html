@@ -220,8 +220,11 @@
         s = parseInt(rest - m * 60);
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間： 0");　
-        $("#remain").html("残り時間： " + m + "分" + s + "秒");
-        //$("#remain").html("残り時間： " + period);
+        $("#remain").html("残り時間： " + period);
+        $("#btnA").prop("disabled", false);
+        $("#btnB").prop("disabled", false);
+        $("#btnA").css("font-Family", "");
+        $("#btnB").css("font-Family", "");
         
         
     }
@@ -242,6 +245,7 @@
             s = parseInt(rest - m * 60);
             $("#time").html("経過時間： " + etime);
             $("#remain").html("残り時間： " + m + "分" + s + "秒");
+            $("#explain").html("Startボタンを押すと現在残り時間からタイマーが開始されます。<br>Stopボタンを押すと一時停止します。<br>Setボタンを押すと初期状態にリセットされます。");
             var firstCircle = "";
             for (let i = 1; i <= m; i++) {
                 firstCircle += "○";
@@ -271,6 +275,7 @@
 
     <div id="remain">Remaining time</div>
     <div id="time">Time</div>
+    <div id="explain">Explain</div>
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
     <button id="btnC">Set</button>  

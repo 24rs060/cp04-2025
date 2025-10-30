@@ -35,6 +35,16 @@
         width: 50%;
         margin: 0 auto;
     }
+
+    #explain{
+        color: blue;
+        font-size: 20px;
+        text-align: justify;
+        position: absolute;
+        top: 600px;
+        left: 10%;
+        right: 20px;
+    }
     
     #mycanvas {
         color: #ffffff;
